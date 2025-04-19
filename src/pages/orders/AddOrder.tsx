@@ -1,6 +1,12 @@
 
 import { Input } from "@/components/ui/input";
-import { Select } from "@/components/ui/select";
+import { 
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
+} from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 
 const AddOrder = () => {
@@ -44,9 +50,16 @@ const AddOrder = () => {
             <div className="mt-4">
               <label className="block text-sm text-gray-600 mb-1">Phone Number</label>
               <div className="flex gap-2">
-                <Select className="w-[100px]">
-                  <option value="us">🇺🇸 +1</option>
-                </Select>
+                <div className="w-[100px]">
+                  <Select defaultValue="us">
+                    <SelectTrigger>
+                      <SelectValue placeholder="Country" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="us">🇺🇸 +1</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
                 <Input placeholder="(201) 555-0124" />
               </div>
             </div>
@@ -54,8 +67,13 @@ const AddOrder = () => {
 
           <div>
             <h2 className="text-lg font-semibold mb-4">Customer Address</h2>
-            <Select className="w-full mb-4">
-              <option>United States</option>
+            <Select defaultValue="us">
+              <SelectTrigger className="w-full">
+                <SelectValue placeholder="Select country" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="us">United States</SelectItem>
+              </SelectContent>
             </Select>
           </div>
 
